@@ -19,7 +19,7 @@ function handleSubmit() {
 }
 
 function getMovies(inputVal, apiKey) {
-  let url = `http://www.omdbapi.com/?s=${inputVal}&apikey=${apiKey}`;
+  let url = `https://www.omdbapi.com/?s=${inputVal}&apikey=${apiKey}`;
   axios.get(url)
     .then((response) => {
       let data = response.data.Search;
