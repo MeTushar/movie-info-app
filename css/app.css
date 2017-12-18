@@ -89,3 +89,47 @@ img {
   margin: 0;
 }
 
+@media only screen and (min-width: 992px) and (max-width: 1200px) {
+  .search-movies-title {
+    font-size: 36px;
+  }
+
+  .movies-container div {
+    flex-basis: 32%;
+  }
+}
+
+@media only screen and (min-width: 480px) and (max-width: 991px) { 
+  .movies-container {
+    justify-content: space-between;
+  }
+  
+  .search-movies-title {
+    font-size: 35px;
+  }
+
+  .search-movies {
+    width: 480px;
+  }
+
+  .movies-container div {
+    flex-basis: 48%;
+    margin: 5px 0;
+  }
+}
+
+@media only screen and (max-width: 479px)  {
+  .search-movies {
+    width: 320px;
+  }
+
+  .search-movies-title {
+    font-size: 32px;
+    padding-bottom: 10px;
+  }
+
+  .movies-container div {
+    flex-basis: 100%;
+    margin: 5px 0;
+  }
+}
