@@ -23,7 +23,12 @@ function getMovies(inputVal, apiKey) {
   axios.get(url)
     .then((response) => {
       let data = response.data.Search;
-      createTemplate(data);
+      let responseStatus = response.data.Response;
+      if(responseStatus === "True") {
+        createTemplate(data);
+      } else {
+        createTemplate(null);
+      }
     })
     .catch((err) => {
       console.log(err);
@@ -32,16 +37,27 @@ function getMovies(inputVal, apiKey) {
 
 function createTemplate(movies) {
   let output = '';
-  movies.map((movie, index) => {
-    output += `
-      <div class="movie-container">
-        <img src="${movie.Poster}" alt="${movie.Title}"/>
-        <h5 class="movie-title margin-0">${movie.Title}</h5>
-        <p class="margin-0"><span>Release Year:</span> ${movie.Year}</p>
-        <p class="margin-0"><span>Type:</span> ${movie.Type}</p>
-        <a href="movies.html" class="view-details item-${index}">View Details</a>
-      </div>
-    `;
-  });
+  if(movies !== null) {
+    movies.map((movie, index) => {
+      output += `
+        <div class="movie-container">
+          <img src="${movie.Poster}" alt="${movie.Title}"/>
+          <h5 class="movie-title margin-0">${movie.Title}</h5>
+          <p class="margin-0"><span>Release Year:</span> ${movie.Year}</p>
+          <p class="margin-0"><span>Type:</span> ${movie.Type}</p>
+          <a href="movies.html" class="view-details item-${index}">View Details</a>
+        </div>
+      `;
+    });
+    changeClass("data", "noData");
+  } else {
+    output += `<p class="no-movies margin-0"><span>404</span>Movie not found</p>`;
+    changeClass("noData", "data");
+  }
   document.querySelector("#movies").innerHTML = output;  
+}
+
+function changeClass(classAdd, classRemove) {
+  document.querySelector("#movies").classList.add(classAdd);
+  document.querySelector("#movies").classList.remove(classRemove);
 }

@@ -89,6 +89,29 @@ img {
   margin: 0;
 }
 
+.no-movies {
+  text-align: center;
+  color: #64B6AC;
+  font-size: 30px;
+}
+
+.no-movies span {
+  display: block;
+  font-weight: 800;
+  font-size: 100px;
+  line-height: 80px;
+}
+
+.data {
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.noData {
+  flex-direction: column;
+  justify-content: center;
+}
+
 @media only screen and (min-width: 992px) and (max-width: 1200px) {
   .search-movies-title {
     font-size: 36px;
@@ -109,7 +132,7 @@ img {
   }
 
   .search-movies {
-    width: 480px;
+    width: 400px;
   }
 
   .movies-container div {
@@ -120,11 +143,11 @@ img {
 
 @media only screen and (max-width: 479px)  {
   .search-movies {
-    width: 320px;
+    width: 250px;
   }
 
   .search-movies-title {
-    font-size: 32px;
+    font-size: 22px;
     padding-bottom: 10px;
   }
 
