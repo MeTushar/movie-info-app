@@ -43,7 +43,7 @@ function createTemplate(movies) {
         <div class="movie-container">
           <img src="${movie.Poster}" alt="${movie.Title}"/>
           <h5 class="movie-title margin-0">${movie.Title}</h5>
-          <p class="margin-0"><span>Release Year:</span> ${movie.Year}</p>
+          <p class="margin-0"><span>Release Year:</span> ${removeHyphen(movie.Year)}</p>
           <p class="margin-0"><span>Type:</span> ${movie.Type}</p>
           <a href="movies.html" class="view-details item-${index}">View Details</a>
         </div>
@@ -60,4 +60,12 @@ function createTemplate(movies) {
 function changeClass(classAdd, classRemove) {
   document.querySelector("#movies").classList.add(classAdd);
   document.querySelector("#movies").classList.remove(classRemove);
+}
+
+function removeHyphen(str) {
+  if(str.charAt(str.length - 1) == "–") {
+    str = str.slice(0, str.length - 1);
+    return str;
+  }
+  return str;
 }
