@@ -112,6 +112,25 @@ img {
   justify-content: center;
 }
 
+.pagination {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.pagination li {
+  list-style: none;
+}
+
+.pagination a {
+  background-color: #64B6AC;
+  border-radius: 3px;
+  color: #fff;
+  margin-right: 5px;
+  padding: 7px 15px;
+  text-decoration: none;
+}
+
 @media only screen and (min-width: 992px) and (max-width: 1200px) {
   .search-movies-title {
     font-size: 36px;
